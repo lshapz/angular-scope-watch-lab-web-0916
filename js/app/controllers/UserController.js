@@ -4,20 +4,28 @@ function UserController($scope) {
 
 	ctrl.country = {
 		name: {
-
+      
 		}
 	};
     $scope.$watchCollection(function () {
         return ctrl.username;
     }, function (newValue, oldValue) {
-        console.log('value updated!');
+        console.log('username updated!');
     });
 
     $scope.$watch(function () {
         return ctrl.country;
-    }, function (newValue, oldValue) {
-        console.log('value updated!');
+    }, function (newValue) {
+        console.log('country updated!');
     }, true);
+
+
+    $scope.$watchCollection(function () {
+      return ctrl.country.name;
+    }, function (newValue) {
+      console.log('country name updated');
+    });
+
 
 }
 
